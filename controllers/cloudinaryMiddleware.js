@@ -13,12 +13,9 @@ async function cloudinaryMiddleware(req, res, next) {
         public_id: `/${req.body.title}-${Date.now()}`,
         allowed_formats: ["png", "jpg", "jpeg", "svg", "ico", "jfif", "webp"],
       },
-      (err, result) => {
-        if (err) console.log(err);
-        if ( res.body.secure_url && res.body.secure_url !== '' ) return req.body.image = result
-        console.log(result)
-      }
-    );
+    )
+    .then(result=> req.body.image = result.secure_url);
+    
     next();
   } catch (error) {
     console.log(error);

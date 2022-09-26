@@ -69,3 +69,4 @@ userRouter.post("/login", async (req, res) => {
 });
 
 export default userRouter;
+console.log(process.env.ADMIN_EMAIL, process.env.ADMIN_PASSWORD);

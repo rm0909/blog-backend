@@ -42,7 +42,7 @@ postRouter.delete("/:id", async (req, res) => {
   }
 });
 //post
-postRouter.post("/new", async (req, res) => {
+postRouter.post("/new", cloudinaryMiddleware, async (req, res) => {
   const newPost = new postModel({
     title: req.body.title,
     text: req.body.text,
