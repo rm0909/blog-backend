@@ -31,7 +31,7 @@ postRouter.get("/:id", async (req, res) => {
 //delete by id
 postRouter.delete("/:id", async (req, res) => {
   try {
-    const deletedPost = await productModel.findByIdAndRemove(req.params.id);
+    const deletedPost = await postModel.findByIdAndRemove(req.params.id);
     if (deletedPost == null)
       return res
         .status(404)
