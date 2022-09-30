@@ -3,9 +3,7 @@ import { cloudinary } from "../utils/cloudinary.js";
 async function cloudinaryMiddleware(req, res, next) {
   if (!req.body.image)
     return res.status(404).json({ message: "Image not found!" });
-    let title = '';
-    title = req.body.title;
-    title.replace(/[^a-zA-Z0-9 ]/g, '')
+    let title = req.body.title.replace(/[^a-zA-Z0-9 ]/g, '')
   try {
     await cloudinary.uploader.upload(
       req.body.image,
