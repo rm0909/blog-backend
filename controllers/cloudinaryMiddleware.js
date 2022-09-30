@@ -10,7 +10,7 @@ async function cloudinaryMiddleware(req, res, next) {
         folder: "posts",
         //optional
         upload_preset: "unsigned_preset",
-        public_id: `/${req.body.title}-${Date.now()}`,
+        public_id: `/${req.body.title.replace(/[^a-zA-Z0-9 ]/g, '')}-${Date.now()}`,
         allowed_formats: ["png", "jpg", "jpeg", "svg", "ico", "jfif", "webp"],
         
       },
